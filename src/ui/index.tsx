@@ -1,19 +1,8 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-
-interface IAppProps {
-  readonly name: string
-}
-
-class App extends React.Component<IAppProps> {
-  public render() {
-    return (
-      <div>Hello {this.props.name}</div>
-    )
-  }
-}
+import { App } from './app'
 
 ReactDOM.render(
-  <App name='Hashimoto'/>,
+  <App />,
   document.getElementById('root')
 )
