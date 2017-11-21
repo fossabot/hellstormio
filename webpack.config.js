@@ -1,5 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const config = {
   entry: {
@@ -17,7 +18,17 @@ const config = {
       {
         test: /\.tsx$/,
         use: 'awesome-typescript-loader'
-      }
+      },
+      // This will cause the compiled CSS to be output to a
+      // styles.css and a <link rel="stylesheet"> tag to be
+      // appended to the index.html HEAD at compile time
+      {
+        test: /\.(scss|css)$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader'],
+        }),
+      },
     ]
   },
 
@@ -27,8 +38,10 @@ const config = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: './static/index.html'
-    })
+      template: path.resolve(__dirname, 'static', 'index.html')
+    }),
+    // Necessary to be able to use ExtractTextPlugin as a loader.
+    new ExtractTextPlugin('ui.css'),
   ]
 }
 
