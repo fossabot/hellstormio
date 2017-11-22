@@ -1,15 +1,27 @@
+'use strict'
+
 const express = require('express')
 const webpack = require('webpack')
-const webpackDevMiddleware = require('webpack-dev-middleware')
-
-const app = express()
 const config = require('../webpack.config')
+const server = express()
 const compiler = webpack(config)
+const port = process.env.PORT || 3000
 
-app.use(webpackDevMiddleware(compiler, {
-  publicPath: config.output
-}))
+server.use(
+  require('webpack-dev-middleware')(compiler, {
+    publicPath: config.mainConfig
+  }),
+  require('webpack-dev-middleware')(compiler, {
+    publicPath: config.adminConfig
+  })
+)
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!\n')
+server.listen(port, 'localhost', err => {
+  if (err) {
+    console.log(err)
+    process.exit(1)
+    return
+  }
+
+  console.log(`Server running at http://localhost:${port}`)
 })
