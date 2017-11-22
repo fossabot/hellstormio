@@ -8,5 +8,5 @@ if (!process.env.TEST_ENV) {
 
 ReactDOM.render(
   <App />,
-  document.getElementById('root')
+  document.getElementById('admin')
 )

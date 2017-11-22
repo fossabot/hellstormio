@@ -1,23 +1,20 @@
-#!/usr/bin/env node
-
-// TODO: Fix this file. VERY HIGH
-
 'use strict'
 
 const express = require('express')
 const webpack = require('webpack')
-const config = require('../webpack.common')
+const config = require('../webpack.config')
 const server = express()
 const compiler = webpack(config)
 const port = process.env.PORT || 3000
 
 server.use(
   require('webpack-dev-middleware')(compiler, {
-    publicPath: config.main.output.publicPath
+    publicPath: config.mainConfig
+  }),
+  require('webpack-dev-middleware')(compiler, {
+    publicPath: config.adminConfig
   })
 )
-
-server.use(require('webpack-hot-middleware')(compiler))
 
 server.listen(port, 'localhost', err => {
   if (err) {
