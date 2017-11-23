@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "build": "parallel-webpack",
-    "start": "node script/server.js"
+    "start": "node script/server.js",
+    "test": "jest --config jest.json --env=jsdom"
   },
   "dependencies": {
     "awesome-typescript-loader": "^3.4.0",
@@ -29,6 +30,7 @@
     "webpack-merge": "^4.1.1"
   },
   "devDependencies": {
+    "@types/jest": "^21.1.8",
     "@types/react": "^16.0.25",
     "@types/react-dom": "^16.0.3"
   }
