@@ -10,11 +10,6 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const outputDir = 'dist'
 
 const commonConfig = {
-  output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, outputDir)
-  },
-
   module: {
     rules: [
       {
@@ -40,7 +35,7 @@ const commonConfig = {
   },
 
   plugins: [
-    new CleanWebpackPlugin(path.resolve(__dirname, 'dist'))
+    // new CleanWebpackPlugin(path.resolve(__dirname, 'dist')),
   ]
 }
 
@@ -48,6 +43,8 @@ const mainConfig = merge({}, commonConfig, {
   entry: { main: path.resolve(__dirname, 'src/ui/index') },
 
   output: {
+    filename: '[name].js',
+    path: path.resolve(__dirname, 'dist'),
     publicPath: '/'
   },
 
@@ -65,13 +62,15 @@ const adminConfig = merge({}, commonConfig, {
   entry: { admin: path.resolve(__dirname, 'src/admin/index') },
 
   output: {
-    publicPath: '/'
+    filename: '[name].js',
+    path: path.resolve(__dirname, 'dist', 'admin'),
+    publicPath: '/admin'
   },
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'static', 'admin.html'),
-      filename: 'admin.html',
+      template: path.join(__dirname, 'static', 'admin', 'index.html'),
+      filename: 'index.html',
       chunks: ['admin'],
     }),
     // Necessary to be able to use ExtractTextPlugin as a loader.
