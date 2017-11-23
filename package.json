@@ -19,6 +19,7 @@
     "jest": "^21.2.1",
     "node-sass": "^4.7.2",
     "parallel-webpack": "^2.2.0",
+    "peagit": "^1.17.0",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
     "sass-loader": "^6.0.6",
