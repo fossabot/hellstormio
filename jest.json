@@ -1,0 +1,17 @@
+{
+  "collectCoverageFrom": ["src/**/*.{ts,tsx}"],
+  "transform": {
+    "^.+\\.tsx?$": "ts-jest"
+  },
+  "testMatch": [
+    "<rootDir>/test/**/*.test.{ts,tsx}"
+  ],
+  "testEnvironment": "node",
+  "moduleFileExtensions": [
+    "ts",
+    "tsx",
+    "js",
+    "jsx",
+    "json"
+  ]
+}
