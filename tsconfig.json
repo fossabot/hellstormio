@@ -2,6 +2,19 @@
   "compilerOptions": {
     "module": "commonjs",
     "moduleResolution": "node",
-    "jsx": "react"
-  }
+    "target": "es2017",
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "sourceMap": true,
+    "jsx": "react",
+    "strict": true,
+    "outDir": "./dist"
+  },
+  "include": ["**/*.ts", "**/*.tsx", "**/*.d.tsx"],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
+  "compileOnSave": false
 }
