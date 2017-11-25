@@ -12,11 +12,9 @@ export class NavBar extends React.Component {
             <li><Link to='/topics'>Topics</Link></li>
           </ul>
 
-          <hr/>
-
           <Route exact path='/' component={this.homeComponent}/>
-          <Route exact path='/' component={this.aboutComponent}/>
-          <Route exact path='/' component={this.topicsComponent}/>
+          <Route path='/about' component={this.aboutComponent}/>
+          <Route path='/topics' component={this.topicsComponent}/>
         </div>
       </Router>
     )
