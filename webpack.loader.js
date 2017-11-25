@@ -14,7 +14,8 @@ const commonConfig = {
     rules: [
       {
         test: /\.tsx$/,
-        use: 'awesome-typescript-loader'
+        use: 'awesome-typescript-loader',
+        exclude: /node_modules/,
       },
       // This will cause the compiled CSS to be output to a
       // styles.css and a <link rel="stylesheet"> tag to be
@@ -36,7 +37,9 @@ const commonConfig = {
 
   plugins: [
     // new CleanWebpackPlugin(path.resolve(__dirname, 'dist')),
-  ]
+  ],
+
+  devtool: 'source-map'
 }
 
 const mainConfig = merge({}, commonConfig, {
