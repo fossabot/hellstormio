@@ -5080,9 +5080,9 @@ type-is@~1.6.15:
     media-typer "0.3.0"
     mime-types "~2.1.15"
 
-typescript@^2.6.1:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.6.1.tgz#ef39cdea27abac0b500242d6726ab90e0c846631"
+typescript@^2.7.0-dev.20171125:
+  version "2.7.0-dev.20171125"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.7.0-dev.20171125.tgz#68c28d0d8846955d0cccc50dfe407cb8c9fdc2a3"
 
 ua-parser-js@^0.7.9:
   version "0.7.17"
