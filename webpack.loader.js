@@ -37,7 +37,9 @@ const commonConfig = {
 
   plugins: [
     // new CleanWebpackPlugin(path.resolve(__dirname, 'dist')),
-  ]
+  ],
+
+  devtool: 'source-map'
 }
 
 const mainConfig = merge({}, commonConfig, {
