@@ -11,5 +11,5 @@ const routes = new Routers()
 
 ReactDOM.render(
   <App routes={routes} />,
-  document.getElementById('root')
+  document.getElementById('root'),
 )

@@ -1,0 +1,16 @@
+{
+    "defaultSeverity": "warn",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "rules": {
+        "quotemark": [true, "single"],
+        "semicolon": [true, "never"],
+        "trailing-comma": [true, "always"],
+        "no-var-requires": [false],
+        "whitespace": [true, "always"],
+        "prefer-const": [true],
+        "ordered-imports": [false],
+        "no-unused-expression": [false]
+    }
+}

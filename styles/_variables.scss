@@ -1,0 +1,82 @@
+// Variables
+//
+// This files contains CSS variables accessible to all selectors
+
+:root {
+
+  // Colors
+  //
+  // These are declared here to let us avoid duplicating color constants
+  // in variables. It also makes it easier to read and understand what
+  // color is being used. Note that these variables should _never_ be
+  // used outside of this scope.
+  $blue: #3d76c2;
+  $yellow: #d0b44c;
+  $red: #bf2b00;
+  $green: #6cc644;
+  $darkGray: #5f717f;
+  $darkerGray: #3b3f46;
+  $gray: #ccc;
+  $lightGray: #f9f9f9;
+  $white: #fff;
+
+  --text-color: $darkGray;
+
+  // Typography
+  //
+  // Font, line-height, and color for body text, headings, and more.
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-family-monospace: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  /**
+   * Font weight to use for semibold text
+   */
+  --font-weight-semibold: 600;
+
+  /**
+   * Font weight to use for light text
+   */
+  --font-weight-light: 300;
+
+  // Pixel value used to responsively scale all typography. Applied to the `<html>` element.
+  --font-size: 13px;
+  --font-size-sm: 11px;
+  --font-size-md: 16px;
+  --font-size-lg: 28px;
+  --font-size-xl: 32px;
+
+  /** Extra small font size, be very conservative with the use of this */
+  --font-size-xs: 9px;
+
+  // Box
+  //
+  // We use the term 'box' here to refer to a very high-level generic
+  // component that fits many use cases. A 'box' might be a list item
+  // or an item in a tab control header. It's up to each implementation
+  // to decide what states to support (active selection, selection, etc).
+
+  --box-alt-background-color: $lightGray;
+
+  /**
+   * Border color for boxes.
+   */
+  --box-border-color: #DFDFDF;
+  --box-border-accent-color: $blue;
+
+  /**
+   * Background color for selected boxes without keyboard focus
+   */
+  --box-selected-background-color: $lightGray;
+
+  --spacing: 10px;
+  --spacing-double: calc(var(--spacing) * 2);
+  --spacing-triple: calc(var(--spacing) * 3);
+  --spacing-half: calc(var(--spacing) / 2);
+  --spacing-third: calc(var(--spacing) / 3);
+
+  --border-radius: 3px;
+  --base-border: 1px solid var(--box-border-color);
+
+  --shadow-color: rgba(0,0,0,0.07);
+  --base-box-shadow: 0 1px 2px var(--shadow-color);
+}
