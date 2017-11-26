@@ -1,8 +1,13 @@
 import * as React from 'react'
 import { NavBar } from './nav-bar'
+import { Routers } from './routes'
 
-export class App extends React.Component {
+interface IAppProps {
+  readonly routes: Routers
+}
+
+export class App extends React.Component<IAppProps> {
   public render() {
-    return <NavBar />
+    return <NavBar routers={this.props.routes} />
   }
 }
