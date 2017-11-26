@@ -1,13 +1,33 @@
 import * as React from 'react'
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
+import { Routers } from '../routes'
 
-export class NavBar extends React.Component {
+interface INavBarProps {
+  readonly routers: Routers
+}
+
+export class NavBar extends React.Component<INavBarProps> {
   public render() {
     return (
-      <ul id='navbar' className='navbar'>
-        <li><a href='#'>Test1</a></li>
-        <li><a href='#'>Test2</a></li>
-        <li><a href='#'>Test2</a></li>
-      </ul>
+      <Router>
+        <div id='navbar'>
+          <ul className='navbar'>
+            <li><NavLink to='/'>Home</NavLink></li>
+            <li><NavLink to='/about'>About</NavLink></li>
+            <li><NavLink to='/topics'>Topics</NavLink></li>
+
+            <li><NavLink to='/login'>Login</NavLink></li>
+          </ul>
+
+          {this.renderRouters()}
+        </div>
+      </Router>
+    )
+  }
+
+  public renderRouters = () => {
+    return (
+      <Route path='/login' component={this.props.routers.topicsComponent} />
     )
   }
 }
