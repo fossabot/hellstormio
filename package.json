@@ -7,7 +7,7 @@
   "scripts": {
     "build": "parallel-webpack",
     "start": "node script/server.js",
-    "test": "jest --config jest.json --env=jsdom",
+    "test": "jest --config jest.json --env=jsdom --coverage",
     "lint": "tslint ./src/{ui,admin}/**/*.{ts,tsx} ./test/**/*.{ts,tsx}",
     "tslint:fix": "yarn tslint --fix",
     "compile:tslint": "tsc -p typescript"

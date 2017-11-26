@@ -3,7 +3,8 @@ import * as ReactDOM from 'react-dom'
 import { App } from '../src/ui/App'
 import { Routers } from '../src/ui/routes'
 
-const routes: Routers | null = null
+// tslint:disable-next-line:prefer-const
+let routes: Routers | null = null
 
 // This tests only main component
 it('renders without crashing', () => {
