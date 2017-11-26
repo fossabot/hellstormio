@@ -3,6 +3,9 @@
     "extends": [
         "tslint:recommended"
     ],
+    "rulesDirectory": [
+        "./typescript"
+    ],
     "rules": {
         "quotemark": [true, "single"],
         "semicolon": [true, "never"],
@@ -11,6 +14,7 @@
         "whitespace": [true, "always"],
         "prefer-const": [true],
         "ordered-imports": [false],
-        "no-unused-expression": [false]
+        "no-unused-expression": [false],
+        "max-classes-per-file": false
     }
 }

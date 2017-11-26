@@ -9,7 +9,8 @@
     "start": "node script/server.js",
     "test": "jest --config jest.json --env=jsdom",
     "lint": "tslint ./src/{ui,admin}/**/*.{ts,tsx} ./test/**/*.{ts,tsx}",
-    "tslint:fix": "yarn tslint --fix"
+    "tslint:fix": "yarn tslint --fix",
+    "compile:tslint": "tsc -p typescript"
   },
   "dependencies": {
     "awesome-typescript-loader": "^3.4.0",
