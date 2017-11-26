@@ -1,26 +1,26 @@
 #navbar {
   ul {
     list-style-type: none;
+    position: relative !important;
+    display: flex;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
-  }
-
-  li {
-    float: left;
+    background-color: #24292e;
   }
 
   li a {
     display: block;
-    color: white;
-    text-align: center;
+    color: var(--darkerGrey);
     padding: 14px 16px;
     text-decoration: none;
   }
 
-  /* Change the link color to #111 (black) on hover */
-  li a:hover {
-    background-color: #111;
+  a:hover {
+    color: var(--lightGray);
+  }
+
+  .rigth {
+    float: right;
   }
 }

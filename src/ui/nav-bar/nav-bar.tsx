@@ -16,7 +16,7 @@ export class NavBar extends React.Component<INavBarProps> {
             <li><NavLink to='/about'>About</NavLink></li>
             <li><NavLink to='/topics'>Topics</NavLink></li>
 
-            <li><NavLink to='/login'>Login</NavLink></li>
+            <li className='rigth'><NavLink to='/login'>Login</NavLink></li>
           </ul>
 
           {this.renderRouters()}
