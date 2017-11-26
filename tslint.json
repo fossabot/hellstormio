@@ -9,6 +9,8 @@
         "trailing-comma": [true, "always"],
         "no-var-requires": [false],
         "whitespace": [true, "always"],
-        "prefer-const": [true]
+        "prefer-const": [true],
+        "ordered-imports": [false],
+        "no-unused-expression": [false]
     }
 }

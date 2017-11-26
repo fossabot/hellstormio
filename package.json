@@ -8,7 +8,7 @@
     "build": "parallel-webpack",
     "start": "node script/server.js",
     "test": "jest --config jest.json --env=jsdom",
-    "lint": "tslint ./src/{src}/**/*.{ts,tsx} ./test/**/*.{ts,tsx}",
+    "lint": "tslint ./src/{ui,admin}/**/*.{ts,tsx} ./test/**/*.{ts,tsx}",
     "tslint:fix": "yarn tslint --fix"
   },
   "dependencies": {
