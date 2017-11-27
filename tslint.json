@@ -1,5 +1,4 @@
 {
-    "defaultSeverity": "warn",
     "extends": [
         "tslint:recommended"
     ],
@@ -11,6 +10,8 @@
         "whitespace": [true, "always"],
         "prefer-const": [true],
         "ordered-imports": [false],
-        "no-unused-expression": [false]
+        "no-unused-expression": [false],
+        "only-arrow-functions": [false],
+        "no-console": false
     }
 }

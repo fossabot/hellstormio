@@ -5,7 +5,9 @@ const webpack = require('webpack')
 const config = require('../webpack.config')
 const server = express()
 const compiler = webpack(config)
-const port = process.env.PORT || 3000
+
+// TODO: Start using process.env.PORT || 9222
+const port = 9222
 
 server.use(
   require('webpack-dev-middleware')(compiler, {
