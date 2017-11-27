@@ -6,7 +6,6 @@ const config = require('../webpack.config')
 const server = express()
 const compiler = webpack(config)
 const port = process.env.PORT || 3000
-const connection = require('../src/lib/database/connect.ts')
 
 server.use(
   require('webpack-dev-middleware')(compiler, {
@@ -14,17 +13,6 @@ server.use(
   }),
   require('webpack-dev-middleware')(compiler, {
     publicPath: config.adminConfig
-  })
-)
-
-server.use(
-  connection.connection.connect(function(err) {
-    if (err) {
-      console.error('error connection: ' + err.stack)
-      return
-    }
-  
-    console.log('connected as id ' + connection.threadId)
   })
 )
 
