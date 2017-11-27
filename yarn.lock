@@ -10,6 +10,12 @@
   version "21.1.8"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-21.1.8.tgz#d497213725684f1e5a37900b17a47c9c018f1a97"
 
+"@types/mysql@^2.15.2":
+  version "2.15.2"
+  resolved "https://registry.yarnpkg.com/@types/mysql/-/mysql-2.15.2.tgz#45e1e036beb05437bba8f60ec4a94a731f2fa905"
+  dependencies:
+    "@types/node" "*"
+
 "@types/node@*":
   version "8.0.53"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.53.tgz#396b35af826fa66aad472c8cb7b8d5e277f4e6d8"
