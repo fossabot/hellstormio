@@ -10,6 +10,15 @@ All notable changes to this project will be documented in this file.
 
 </details>
 
+## 0.0.3 (December 02, 2017)
+### Changelog
+
+- Bump some dependecies [#39]
+- Add Database [#38]
+- Add Variables for SCSS and Add TSLint [#30]
+- Add debug configuration [#27]
+- Start using React Router in Navigation bar component [#26]
+
 ## HellStorm 0.0.2 (November 25, 2017)
 ### Changelog
 
