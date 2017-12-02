@@ -8,6 +8,8 @@ app.get('/api/hello', function(req, res) {
     message: 'Hello World',
     user: 'JSON',
   })
+
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:9223')
 })
 
 app.listen(port, function() {

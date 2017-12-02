@@ -1,13 +1,36 @@
 import * as React from 'react'
 import { NavBar } from './nav-bar'
-import { Routers } from './routes'
 
-interface IAppProps {
-  readonly routes: Routers
+interface IAppState {
+  readonly message: string
 }
 
-export class App extends React.Component<IAppProps> {
+export class App extends React.Component<{}, IAppState> {
+
+  public constructor(props: any) {
+    super(props)
+
+    this.state = {
+      message: ''
+    }
+  }
+
   public render() {
-    return <NavBar routers={this.props.routes} />
+    return(
+      <div id='root'>
+        <p>API message {this.state.message}</p>
+        <NavBar />
+      </div>
+    )
+  }
+
+  public componentDidMount() {
+    return fetch('http://localhost:9223')
+      .then((response) => response.json())
+      .then((responseJson) => {
+        this.setState({
+          message: responseJson.message
+        })
+      })
   }
 }
