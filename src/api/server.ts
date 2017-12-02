@@ -3,16 +3,19 @@ import * as express from 'express'
 import { connection } from './database/connect'
 
 const app = express()
-
 const port = 9223
+
+app.get(`/api/v1/users`, function(req, res) {
+  res.json({
+    username: 'strigns'
+  })
+})
 
 app.get('/api/hello', function(req, res) {
   res.json({
     message: 'Hello World',
     user: 'JSON',
   })
-
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:9223')
 })
 
 connection.connect()
@@ -22,7 +25,7 @@ connection.query('SELECT * FROM `hellstorm_test`.`users`', function(error, resul
     throw error
   }
 
-  console.log('The solution is: ', results[1])
+  console.log(results[0] + ' rows')
 })
 
 app.listen(port, function() {
