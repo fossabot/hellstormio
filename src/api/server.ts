@@ -5,13 +5,13 @@ import { connection } from './database/connect'
 const app = express()
 const port = 9223
 
-app.get(`/api/v1/users`, function(req, res) {
+app.get(`/api/v1/users`, function(req: any, res: any) {
   res.json({
     username: 'strigns'
   })
 })
 
-app.get('/api/hello', function(req, res) {
+app.get('/api/hello', function(req: any, res: any) {
   res.json({
     message: 'Hello World',
     user: 'JSON',
