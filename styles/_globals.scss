@@ -57,14 +57,6 @@ body {
   background-color: var(--background-color);
 }
 
-:not(input):not(textarea) {
-  &, &::after, &::before {
-    -webkit-user-select: none;
-    user-select: none;
-    cursor: default;
-  }
-}
-
 img {
   -webkit-user-drag: none;
   user-select: none;
@@ -84,12 +76,6 @@ img {
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: .5rem;
-}
-
-// Regardless of platform behavior we never want buttons to be
-// app drag targets unless explicitly specified.
-button {
-  -webkit-app-region: no-drag;
 }
 
 #content {
