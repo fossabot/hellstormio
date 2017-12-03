@@ -23,14 +23,4 @@ export class App extends React.Component<{}, IAppState> {
       </div>
     )
   }
-
-  public componentDidMount() {
-    return fetch('http://localhost:9223')
-      .then((response) => response.json())
-      .then((responseJson) => {
-        this.setState({
-          message: responseJson.message
-        })
-      })
-  }
 }
