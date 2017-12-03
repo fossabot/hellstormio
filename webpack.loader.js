@@ -36,7 +36,8 @@ const commonConfig = {
   },
 
   plugins: [
-    // new CleanWebpackPlugin(path.resolve(__dirname, 'dist')),
+    new CleanWebpackPlugin(path.resolve(__dirname, 'dist')),
+    new webpack.HotModuleReplacementPlugin()
   ],
 
   devtool: 'source-map'
