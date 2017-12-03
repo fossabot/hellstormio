@@ -1,19 +1,23 @@
-import { GitProcess } from 'peagit'
-import * as path from 'path'
+// @ts-ignore
+import { GitProcess, GitError, IGitExecutionOptions } from 'peagit'
+import * as Path from 'path'
 
-const pathToRepository = path.resolve(__dirname)
+const repositoryPath = Path.resolve(__dirname, '..', '..')
 
-async function status() {
-  const result = await GitProcess.exec([ 'status' ], pathToRepository)
-  if (result.exitCode) {
-    const output = result.stdout
-    console.log(output)
-  } else {
-    const error = result.stderr
-    console.error(error)
+// for readability, let's alias this
+const git = GitProcess.exec
+
+createNone(repositoryPath)
+
+export async function createNone(path: string) {
+  const result = await git(['status'], path)
+  console.log(result.stdout)
+  if (result.exitCode !== 0) {
+    const error = GitProcess.parseError(result.stderr)
+    if (error) {
+      console.log(`Got error code: ${error}`)
+    } else {
+      console.log(`Could not parse error: ${result.stderr}`)
+    }
   }
-}
-
-module.exports = {
-  status
 }
