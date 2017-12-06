@@ -1,12 +1,7 @@
 import * as React from 'react'
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
-import { Routers } from '../routes'
 
-interface INavBarProps {
-  readonly routers: Routers
-}
-
-export class NavBar extends React.Component<INavBarProps> {
+export class NavBar extends React.Component {
   public render() {
     return (
       <Router>
@@ -27,7 +22,13 @@ export class NavBar extends React.Component<INavBarProps> {
 
   public renderRouters = () => {
     return (
-      <Route path='/login' component={this.props.routers.topicsComponent} />
+      <Route path='/login' component={this.topicsComponent} />
     )
   }
+
+  public topicsComponent = () => (
+    <div>
+      Topics
+    </div>
+  )
 }
