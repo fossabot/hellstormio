@@ -1,25 +1,13 @@
 import * as React from 'react'
 import { NavBar } from './nav-bar'
+import { Footer } from './footer'
 
-interface IAppState {
-  readonly message: string
-}
-
-export class App extends React.Component<{}, IAppState> {
-
-  public constructor(props: any) {
-    super(props)
-
-    this.state = {
-      message: ''
-    }
-  }
-
+export class App extends React.Component {
   public render() {
-    return(
+    return (
       <div id='root'>
-        <p>API message {this.state.message}</p>
         <NavBar />
+        <Footer />
       </div>
     )
   }
