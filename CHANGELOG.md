@@ -8,6 +8,11 @@ All notable changes to this project will be documented in this file.
     Click to see more.
   </summary>
 
+- Bump dependencies [#44]
+- New styles for navigation bar [#42]
+- Initialize footer [#41]
+- Create API with Express [#40]
+
 </details>
 
 ## 0.0.3 (December 02, 2017)
