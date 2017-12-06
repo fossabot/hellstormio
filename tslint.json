@@ -1,17 +1,78 @@
 {
-    "extends": [
-        "tslint:recommended"
+  "rules": {
+    "class-name": true,
+    "curly": true,
+    "indent": [
+      true,
+      "spaces"
     ],
-    "rules": {
-        "quotemark": [true, "single"],
-        "semicolon": [true, "never"],
-        "trailing-comma": [true, "always"],
-        "no-var-requires": [false],
-        "whitespace": [true, "always"],
-        "prefer-const": [true],
-        "ordered-imports": [false],
-        "no-unused-expression": [false],
-        "only-arrow-functions": [false],
-        "no-console": false
-    }
+    "interface-name": [ true, "always-prefix"],
+    "jsdoc-format": true,
+    "member-access": [
+      true,
+      "check-accessor",
+      "check-constructor"
+    ],
+    "member-ordering": [
+      true,
+      "static-before-instance",
+      "variables-before-functions"
+    ],
+    "no-construct": true,
+    "no-default-export": true,
+    "no-duplicate-variable": true,
+    "no-eval": true,
+    "no-internal-module": true,
+    "no-invalid-this": true,
+    "no-trailing-whitespace": true,
+    "no-unused-expression": true,
+    "no-var-keyword": true,
+    "one-line": [
+      true,
+      "check-open-brace",
+      "check-whitespace"
+    ],
+    "prefer-const": true,
+    "quotemark": [
+      true,
+      "single"
+    ],
+    "semicolon": [
+      true,
+      "never"
+    ],
+    "trailing-comma": [
+      true,
+      {
+        "multiline": "always",
+        "singleline": "never"
+      }
+    ],
+    "triple-equals": [
+      true,
+      "allow-null-check"
+    ],
+    "typedef-whitespace": [
+      true,
+      {
+        "call-signature": "nospace",
+        "index-signature": "nospace",
+        "parameter": "nospace",
+        "property-declaration": "nospace",
+        "variable-declaration": "nospace"
+      }
+    ],
+    "variable-name": [
+      true,
+      "ban-keywords"
+    ],
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-separator",
+      "check-type"
+    ]
+  }
 }
