@@ -1,33 +1,47 @@
 import * as express from 'express'
-
-import { connection } from './database/connect'
-
+// import { connection } from './database/connect'
 const app = express()
-const port = 9223
 
-app.get(`/api/v1/users`, function(req: any, res: any) {
-  res.json({
-    username: 'strigns'
+//#region Import routes
+const users = require('./routes/users')
+const index = require('./routes/index')
+//#endregion
+
+//#region Add Routes
+app.use('/api/v1', index)
+app.use('/api/v1/users', users)
+//#endregion
+
+//#region Webpack Configuration
+const webpack = require('webpack')
+const config = require('../../webpack.config.js')
+const compiler = webpack(config)
+
+app.use(
+  require('webpack-dev-middleware')(compiler, {
+    publicPath: config.mainConfig,
+  }),
+  require('webpack-dev-middleware')(compiler, {
+    publicPath: config.adminConfig,
+  }),
+)
+//#endregion
+
+//#region Database connection
+app.use(function (req, res, next) {
+  next()
+})
+//#endregion
+
+// Enable server
+export function connect() {
+  app.listen(9222, 'localhost', (err: any) => {
+    if (err) {
+      console.log(err)
+      process.exit(1)
+      return
+    }
+
+    console.log(`Server running at http://localhost:9222`)
   })
-})
-
-app.get('/api/hello', function(req: any, res: any) {
-  res.json({
-    message: 'Hello World',
-    user: 'JSON',
-  })
-})
-
-connection.connect()
-
-connection.query('SELECT * FROM `hellstorm_test`.`users`', function(error, results, fields) {
-  if (error) {
-    throw error
-  }
-
-  console.log(results[0] + ' rows')
-})
-
-app.listen(port, function() {
-  console.log(`Server runnig on ${port}`)
-})
+}
