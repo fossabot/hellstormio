@@ -5,13 +5,16 @@ const app = express()
 //#region Import routes
 const users = require('./routes/users')
 const index = require('./routes/index')
+const games = require('./routes/games')
 //#endregion
 
 //#region Add Routes
 app.use('/api/v1', index)
 app.use('/api/v1/users', users)
+app.use('/api/v1/games', games)
 //#endregion
 
+/*
 //#region Webpack Configuration
 const webpack = require('webpack')
 const config = require('../../webpack.config.js')
@@ -25,7 +28,7 @@ app.use(
     publicPath: config.adminConfig,
   }),
 )
-//#endregion
+//#endregion */
 
 //#region Database connection
 app.use(function (req, res, next) {
