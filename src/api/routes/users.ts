@@ -1,26 +1,23 @@
 import * as express from 'express'
+import { standardOutput, connection } from '../database'
+
 const router = express.Router()
 
-import { connection } from '../database/connect'
+/* GET tag listing. */
+router.get('/', function (req, res) {
+  connection.query('SELECT * FROM `users`', function (error, results) {
+    standardOutput(error, results, res)
+  })
+})
 
-/* GET users listing. */
-router.get('/', function (req, res, next) {
-  connection.query('SELECT * from users', function (error, results, fields) {
-    if (error) {
-      res.json({
-        'status': 500,
-        'error': error,
-        'response': null,
-      })
-      // If there is error, we send the error in the error section with 500 status
-    } else {
-      res.json({
-        'status': 200,
-        'error': null,
-        'response': results,
-      })
-      // If there is no error, all is good and response is 200OK.
-    }
+/* POST tag listing. */
+router.post('/', function (req, res) {
+  // INSERT INTO`users`(`username`, `email`, `password`, `join_date`) VALUES('3143141', '415151', '515151', '2017-12-07');
+  let query = 'INSERT INTO `users` (??,??,??,??) VALUES (?,?,?,?)'
+  const table = ['username', 'email', 'password', 'join_date', req.body.username, req.body.email.toLowerCase(), req.body.password, new Date()]
+  query = connection.format(query, table)
+  connection.query(query, function (error, results) {
+    standardOutput(error, results, res)
   })
 })
 
