@@ -19,7 +19,6 @@ app.use('/api/v1/games', games)
 app.use('/api/v1/tag', tag)
 //#endregion
 
-/*
 //#region Webpack Configuration
 const webpack = require('webpack')
 const config = require('../../webpack.config.js')
@@ -33,7 +32,7 @@ app.use(
     publicPath: config.adminConfig,
   }),
 )
-//#endregion */
+//#endregion
 
 //#region Database connection
 app.use(function (req, res, next) {

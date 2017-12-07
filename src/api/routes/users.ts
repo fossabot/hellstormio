@@ -14,7 +14,7 @@ router.get('/', function (req, res) {
 router.post('/', function (req, res) {
   // INSERT INTO`users`(`username`, `email`, `password`, `join_date`) VALUES('3143141', '415151', '515151', '2017-12-07');
   let query = 'INSERT INTO `users` (??,??,??,??) VALUES (?,?,?,?)'
-  const table = ['username', 'email', 'password', 'join_date', req.body.username, req.body.email.toLowerCase(), req.body.password, new Date()]
+  const table = ['username', 'email', 'password', 'join_date', req.body.username, req.body.email, req.body.password, new Date()]
   query = connection.format(query, table)
   connection.query(query, function (error, results) {
     standardOutput(error, results, res)
