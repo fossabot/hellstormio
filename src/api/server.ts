@@ -6,12 +6,14 @@ const app = express()
 const users = require('./routes/users')
 const index = require('./routes/index')
 const games = require('./routes/games')
+const tag = require('./routes/tag')
 //#endregion
 
 //#region Add Routes
 app.use('/api/v1', index)
 app.use('/api/v1/users', users)
 app.use('/api/v1/games', games)
+app.use('/api/v1/tag', tag)
 //#endregion
 
 /*
