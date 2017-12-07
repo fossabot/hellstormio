@@ -1,28 +1,25 @@
 import * as express from 'express'
 const router = express.Router()
+import { standardOutput, connection } from '../database'
 
-import { connection } from '../database/connect'
+router.get('/', function (req, res) {
+  connection.query('SELECT * FROM `tag`', function (error, results) {
+    standardOutput(error, results, res)
+  })
+})
 
 /* POST tag listing. */
-router.post('/', function (req, res, next) {
-  const sql = 'INSERT INTO tag (id, name) VALUES ?'
-  const values = [
-    ['John', 'Highway 71'],
-    ['Peter', 'Lowstreet 4'],
-    ['Amy', 'Apple st 652'],
-    ['Hannah', 'Mountain 21'],
-    ['Michael', 'Valley 345'],
-    ['Sandy', 'Ocean blvd 2'],
-    ['Betty', 'Green Grass 1'],
-    ['Richard', 'Sky st 331'],
-    ['Susan', 'One way 98'],
-    ['Vicky', 'Yellow Garden 2'],
-    ['Ben', 'Park Lane 38'],
-    ['William', 'Central st 954'],
-    ['Chuck', 'Main Road 989'],
-    ['Viola', 'Sideway 1633'],
-  ]
-  connection.query(sql, [values], function (error, results) {
+router.post('/', function (req, res) {
+  let query = 'INSERT INTO `tag` (??) VALUES (?)'
+  const table = [`name`, req.body.name]
+  query = connection.format(query, table)
+  connection.query(query, function (error, results) {
+    standardOutput(error, results, res)
+  })
+})
+
+router.put('/', function (req, res) {
+  connection.query('UPDATE `tag` SET `name`=?, where `id`=?', [req.body.id], function (error, results, fields) {
     if (error) {
       res.json({
         'status': 500,

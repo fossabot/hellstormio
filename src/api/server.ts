@@ -1,6 +1,9 @@
 import * as express from 'express'
-// import { connection } from './database/connect'
+const bodyParser = require('body-parser')
+
 const app = express()
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 
 //#region Import routes
 const users = require('./routes/users')
