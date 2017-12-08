@@ -24,7 +24,6 @@
     "moment": "^2.19.3",
     "mysql": "^2.15.0",
     "node-sass": "^4.7.2",
-    "nodemon": "^1.12.5",
     "parallel-webpack": "^2.2.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
