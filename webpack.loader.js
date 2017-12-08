@@ -40,7 +40,11 @@ const commonConfig = {
     new webpack.HotModuleReplacementPlugin()
   ],
 
-  devtool: 'source-map'
+  devtool: 'source-map',
+
+  node: {
+    fs: 'empty',
+  },
 }
 
 const mainConfig = merge({}, commonConfig, {

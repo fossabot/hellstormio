@@ -1,9 +1,6 @@
 import * as express from 'express'
-const Raven = require('raven')
 // import { connection } from './database/connect'
 const app = express()
-
-Raven.config('https://a2465449ea624f42ac28ade5df68ffe0:620853d383054857977debe629e96101@sentry.io/224389').install()
 
 //#region Import routes
 const users = require('./routes/users')
@@ -38,7 +35,6 @@ app.use(function (req, res, next) {
 
 // Enable server
 export function connect() {
-  Raven.requestHandler(),
   app.listen(9222, 'localhost', (err: any) => {
     if (err) {
       console.log(err)
@@ -48,5 +44,4 @@ export function connect() {
 
     console.log(`Server running at http://localhost:9222`)
   })
-  Raven.errorHandler()
 }
