@@ -1,0 +1,33 @@
+os: Visual Studio 2017
+
+platform:
+  - x64
+
+environment:
+  nodejs_version: "8"
+
+cache:
+  - node_modules
+  - '%LOCALAPPDATA%\Yarn'
+
+branches:
+  only:
+    - master
+    - production
+
+skip_tags: true
+
+version: "{build}"
+
+install:
+  - ps: Install-Product node $env:nodejs_version $env:platform
+  - yarn install --force
+
+build_script:
+  - yarn lint
+  - yarn build
+
+test_script:
+  - node --version
+  - yarn test
+  - yarn codecov

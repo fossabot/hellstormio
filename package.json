@@ -7,14 +7,16 @@
   "scripts": {
     "build": "cross-env parallel-webpack",
     "start": "cross-env ts-node script/server.ts",
-    "test": "cross-env jest --config jest.json --env=jsdom",
+    "test": "cross-env jest --config jest.json --env=jsdom --coverage",
     "lint": "tslint ./src/{ui,admin}/**/*.{ts,tsx} ./test/**/*.{ts,tsx}",
-    "tslint:fix": "yarn tslint --fix"
+    "tslint:fix": "yarn tslint --fix",
+    "codecov": "codecov"
   },
   "dependencies": {
     "awesome-typescript-loader": "^3.4.1",
     "body-parser": "^1.18.2",
     "clean-webpack-plugin": "^0.1.17",
+    "codecov": "^3.0.0",
     "cross-env": "^5.1.1",
     "css-loader": "^0.28.7",
     "express": "^4.16.2",
