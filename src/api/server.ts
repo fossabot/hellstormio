@@ -10,6 +10,7 @@ const users = require('./routes/users')
 const index = require('./routes/index')
 const games = require('./routes/games')
 const tag = require('./routes/tag')
+const category = require('./routes/category')
 //#endregion
 
 //#region Add Routes
@@ -17,6 +18,7 @@ app.use('/api/v1', index)
 app.use('/api/v1/users', users)
 app.use('/api/v1/games', games)
 app.use('/api/v1/tag', tag)
+app.use('/api/v1/category', category)
 //#endregion
 
 /*
