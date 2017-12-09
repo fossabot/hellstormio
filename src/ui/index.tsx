@@ -8,7 +8,7 @@ if (!process.env.TEST_ENV) {
 }
 
 const appStore = new AppStore()
-const dispatcher = new Dispatcher()
+const dispatcher = new Dispatcher(appStore)
 
 ReactDOM.render(
   <App dispatcher={dispatcher} appStore={appStore} />,

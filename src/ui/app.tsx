@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { NavBar } from './nav-bar'
 import { Footer } from './footer'
-import { Join } from './registration'
 import { IAppState } from '../lib/app-state'
 import { Dispatcher, AppStore } from '../lib/dispatcher'
 
@@ -15,7 +14,7 @@ export class App extends React.Component<IAppProps, IAppState> {
     return (
       <div id='root'>
         <NavBar />
-        <Join />
+        <div>{this.props.dispatcher.loadConsole}</div>
         <Footer />
       </div>
     )
