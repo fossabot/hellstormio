@@ -7,13 +7,16 @@ All notable changes to this project will be documented in this file.
     Changes that have landed in master but are not yet released.
     Click to see more.
   </summary>
+</details>
 
+## 0.0.4 (December 09, 2017)
+- Create Highload API [#7]
+- Update Releases [#6]
+### This changes makes on GitHub Enterprise
 - Bump dependencies [#44]
 - New styles for navigation bar [#42]
 - Initialize footer [#41]
 - Create API with Express [#40]
-
-</details>
 
 ## 0.0.3 (December 02, 2017)
 ### Changelog
