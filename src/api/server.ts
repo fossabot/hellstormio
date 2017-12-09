@@ -21,7 +21,6 @@ app.use('/api/v1/tag', tag)
 app.use('/api/v1/category', category)
 //#endregion
 
-/*
 //#region Webpack Configuration
 const webpack = require('webpack')
 const config = require('../../webpack.config.js')
@@ -41,7 +40,7 @@ app.use(
 app.use(function (req, res, next) {
   next()
 })
-//#endregion */
+//#endregion
 
 // Enable server
 export function connect() {

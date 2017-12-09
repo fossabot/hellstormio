@@ -14,7 +14,15 @@ const commonConfig = {
     rules: [
       {
         test: /\.tsx$/,
-        use: 'awesome-typescript-loader',
+        include: path.resolve(__dirname, 'src'),
+        use: [
+          {
+            loader: 'awesome-typescript-loader',
+            options: {
+              useBabel: true,
+            },
+          },
+        ],
         exclude: /node_modules/,
       },
       // This will cause the compiled CSS to be output to a
@@ -31,13 +39,13 @@ const commonConfig = {
   },
 
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
-    modules: [ path.resolve(__dirname, 'node_modules/') ],
+    extensions: ['.js', '.ts', '.tsx'],
+    modules: [path.resolve(__dirname, 'node_modules/')],
   },
 
   plugins: [
     new CleanWebpackPlugin(path.resolve(__dirname, 'dist')),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.NoEmitOnErrorsPlugin(),
   ],
 
   devtool: 'source-map'
@@ -49,7 +57,8 @@ const mainConfig = merge({}, commonConfig, {
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/'
+    publicPath: '/',
+    libraryTarget: 'commonjs2',
   },
 
   plugins: [
@@ -68,7 +77,8 @@ const adminConfig = merge({}, commonConfig, {
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist', 'admin'),
-    publicPath: '/admin'
+    publicPath: '/admin',
+    libraryTarget: 'commonjs2',
   },
 
   plugins: [

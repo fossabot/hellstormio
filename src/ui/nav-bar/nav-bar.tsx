@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
+import { Join } from '../registration/index'
 
 /** A Navigation Bar component */
 export class NavBar extends React.Component {
@@ -13,9 +14,10 @@ export class NavBar extends React.Component {
 
           <div className='sign'>
             <NavLink className='right' to='/login'>Login</NavLink>
-            <NavLink className='right' to='register'>Register</NavLink>
+            <NavLink className='right' to='/register'>Register</NavLink>
           </div>
           <input type='text' placeholder='Search…' />
+          <Route exact path='/register' component={Join}/>
         </div>
       </Router>
     )
