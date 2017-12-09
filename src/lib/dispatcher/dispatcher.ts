@@ -11,13 +11,13 @@
  * @preventMunge
  */
 
-'use strict';
+'use strict'
 
-var invariant = require('invariant');
+var invariant = require('invariant')
 
-export type DispatchToken = string;
+export type DispatchToken = string
 
-var _prefix = 'ID_';
+var _prefix = 'ID_'
 
 /**
  * Dispatcher is used to broadcast payloads to registered callbacks. This is
@@ -107,19 +107,19 @@ var _prefix = 'ID_';
  * `FlightPriceStore`.
  */
 class Dispatcher<TPayload> {
-  _callbacks: {[key: DispatchToken]: (payload: TPayload) => void};
-  _isDispatching: boolean;
-  _isHandled: {[key: DispatchToken]: boolean};
-  _isPending: {[key: DispatchToken]: boolean};
-  _lastID: number;
-  _pendingPayload: TPayload;
+  _callbacks: { [key: DispatchToken]: (payload: TPayload) => void }
+  _isDispatching: boolean
+  _isHandled: { [key: DispatchToken]: boolean }
+  _isPending: { [key: DispatchToken]: boolean }
+  _lastID: number
+  _pendingPayload: TPayload
 
   constructor() {
-    this._callbacks = {};
-    this._isDispatching = false;
-    this._isHandled = {};
-    this._isPending = {};
-    this._lastID = 1;
+    this._callbacks = {}
+    this._isDispatching = false
+    this._isHandled = {}
+    this._isPending = {}
+    this._lastID = 1
   }
 
   /**
@@ -127,9 +127,9 @@ class Dispatcher<TPayload> {
    * a token that can be used with `waitFor()`.
    */
   register(callback: (payload: TPayload) => void): DispatchToken {
-    var id = _prefix + this._lastID++;
-    this._callbacks[id] = callback;
-    return id;
+    var id = _prefix + this._lastID++
+    this._callbacks[id] = callback
+    return id
   }
 
   /**
@@ -140,8 +140,8 @@ class Dispatcher<TPayload> {
       this._callbacks[id],
       'Dispatcher.unregister(...): `%s` does not map to a registered callback.',
       id
-    );
-    delete this._callbacks[id];
+    )
+    delete this._callbacks[id]
   }
 
   /**
@@ -153,24 +153,24 @@ class Dispatcher<TPayload> {
     invariant(
       this._isDispatching,
       'Dispatcher.waitFor(...): Must be invoked while dispatching.'
-    );
+    )
     for (var ii = 0; ii < ids.length; ii++) {
-      var id = ids[ii];
+      var id = ids[ii]
       if (this._isPending[id]) {
         invariant(
           this._isHandled[id],
           'Dispatcher.waitFor(...): Circular dependency detected while ' +
-          'waiting for `%s`.',
+            'waiting for `%s`.',
           id
-        );
-        continue;
+        )
+        continue
       }
       invariant(
         this._callbacks[id],
         'Dispatcher.waitFor(...): `%s` does not map to a registered callback.',
         id
-      );
-      this._invokeCallback(id);
+      )
+      this._invokeCallback(id)
     }
   }
 
@@ -181,17 +181,17 @@ class Dispatcher<TPayload> {
     invariant(
       !this._isDispatching,
       'Dispatch.dispatch(...): Cannot dispatch in the middle of a dispatch.'
-    );
-    this._startDispatching(payload);
+    )
+    this._startDispatching(payload)
     try {
       for (var id in this._callbacks) {
         if (this._isPending[id]) {
-          continue;
+          continue
         }
-        this._invokeCallback(id);
+        this._invokeCallback(id)
       }
     } finally {
-      this._stopDispatching();
+      this._stopDispatching()
     }
   }
 
@@ -199,7 +199,7 @@ class Dispatcher<TPayload> {
    * Is this Dispatcher currently dispatching.
    */
   isDispatching(): boolean {
-    return this._isDispatching;
+    return this._isDispatching
   }
 
   /**
@@ -209,9 +209,9 @@ class Dispatcher<TPayload> {
    * @internal
    */
   _invokeCallback(id: DispatchToken): void {
-    this._isPending[id] = true;
-    this._callbacks[id](this._pendingPayload);
-    this._isHandled[id] = true;
+    this._isPending[id] = true
+    this._callbacks[id](this._pendingPayload)
+    this._isHandled[id] = true
   }
 
   /**
@@ -221,11 +221,11 @@ class Dispatcher<TPayload> {
    */
   _startDispatching(payload: TPayload): void {
     for (var id in this._callbacks) {
-      this._isPending[id] = false;
-      this._isHandled[id] = false;
+      this._isPending[id] = false
+      this._isHandled[id] = false
     }
-    this._pendingPayload = payload;
-    this._isDispatching = true;
+    this._pendingPayload = payload
+    this._isDispatching = true
   }
 
   /**
@@ -234,9 +234,9 @@ class Dispatcher<TPayload> {
    * @internal
    */
   _stopDispatching(): void {
-    delete this._pendingPayload;
-    this._isDispatching = false;
+    delete this._pendingPayload
+    this._isDispatching = false
   }
 }
 
-module.exports = Dispatcher;
+module.exports = Dispatcher

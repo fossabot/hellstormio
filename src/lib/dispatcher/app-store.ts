@@ -9,13 +9,13 @@
  * @flow
  */
 
-'use strict';
+'use strict'
 
-import type Dispatcher from 'Dispatcher';
+import * as Dispatcher from 'Dispatcher'
 
-const {EventEmitter} = require('fbemitter');
+const { EventEmitter } = require('fbemitter')
 
-const invariant = require('invariant');
+const invariant = require('invariant')
 
 /**
  * This class represents the most basic functionality for a FluxStore. Do not
@@ -23,35 +23,34 @@ const invariant = require('invariant');
  * new store.
  */
 class FluxStore {
-
   // private
-  _dispatchToken: string;
+  _dispatchToken: string
 
   // protected, available to subclasses
-  __changed: boolean;
-  __changeEvent: string;
-  __className: any;
-  __dispatcher: Dispatcher<any>;
-  __emitter: EventEmitter;
+  __changed: boolean
+  __changeEvent: string
+  __className: any
+  __dispatcher: Dispatcher<any>
+  __emitter: EventEmitter
 
-  constructor(dispatcher: Dispatcher<any>): void {
-    this.__className = this.constructor.name;
+  constructor(dispatcher: Dispatcher<any>) {
+    this.__className = this.constructor.name
 
-    this.__changed = false;
-    this.__changeEvent = 'change';
-    this.__dispatcher = dispatcher;
-    this.__emitter = new EventEmitter();
-    this._dispatchToken = dispatcher.register((payload) => {
-      this.__invokeOnDispatch(payload);
-    });
+    this.__changed = false
+    this.__changeEvent = 'change'
+    this.__dispatcher = dispatcher
+    this.__emitter = new EventEmitter()
+    this._dispatchToken = dispatcher.register(payload => {
+      this.__invokeOnDispatch(payload)
+    })
   }
 
-  addListener(callback: (eventType?: string) => void): {remove: () => void} {
-    return this.__emitter.addListener(this.__changeEvent, callback);
+  addListener(callback: (eventType?: string) => void): { remove: () => void } {
+    return this.__emitter.addListener(this.__changeEvent, callback)
   }
 
   getDispatcher(): Dispatcher<any> {
-    return this.__dispatcher;
+    return this.__dispatcher
   }
 
   /**
@@ -60,7 +59,7 @@ class FluxStore {
    * on other stores updating themselves first.
    */
   getDispatchToken(): string {
-    return this._dispatchToken;
+    return this._dispatchToken
   }
 
   /**
@@ -71,8 +70,8 @@ class FluxStore {
       this.__dispatcher.isDispatching(),
       '%s.hasChanged(): Must be invoked while dispatching.',
       this.__className
-    );
-    return this.__changed;
+    )
+    return this.__changed
   }
 
   __emitChange(): void {
@@ -80,8 +79,8 @@ class FluxStore {
       this.__dispatcher.isDispatching(),
       '%s.__emitChange(): Must be invoked while dispatching.',
       this.__className
-    );
-    this.__changed = true;
+    )
+    this.__changed = true
   }
 
   /**
@@ -90,10 +89,10 @@ class FluxStore {
    * subclass has handled a payload.
    */
   __invokeOnDispatch(payload: Object): void {
-    this.__changed = false;
-    this.__onDispatch(payload);
+    this.__changed = false
+    this.__onDispatch(payload)
     if (this.__changed) {
-      this.__emitter.emit(this.__changeEvent);
+      this.__emitter.emit(this.__changeEvent)
     }
   }
 
@@ -107,8 +106,8 @@ class FluxStore {
       false,
       '%s has not overridden FluxStore.__onDispatch(), which is required',
       this.__className
-    );
+    )
   }
 }
 
-module.exports = FluxStore;
+module.exports = FluxStore
