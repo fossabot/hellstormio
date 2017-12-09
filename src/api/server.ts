@@ -1,17 +1,27 @@
 import * as express from 'express'
-// import { connection } from './database/connect'
+const bodyParser = require('body-parser')
+
 const app = express()
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 
 //#region Import routes
 const users = require('./routes/users')
 const index = require('./routes/index')
+const games = require('./routes/games')
+const tag = require('./routes/tag')
+const category = require('./routes/category')
 //#endregion
 
 //#region Add Routes
 app.use('/api/v1', index)
 app.use('/api/v1/users', users)
+app.use('/api/v1/games', games)
+app.use('/api/v1/tag', tag)
+app.use('/api/v1/category', category)
 //#endregion
 
+/*
 //#region Webpack Configuration
 const webpack = require('webpack')
 const config = require('../../webpack.config.js')
@@ -31,7 +41,7 @@ app.use(
 app.use(function (req, res, next) {
   next()
 })
-//#endregion
+//#endregion */
 
 // Enable server
 export function connect() {

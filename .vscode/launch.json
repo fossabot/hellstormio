@@ -1,14 +1,16 @@
 {
   "version": "0.2.0",
-  "configurations": [{
-    "name": "Chrome Debug Config",
-    "type": "chrome",
-    "request": "launch",
-    "url": "http://localhost",
-    "webRoot": "${workspaceRoot}",
-    "sourceMapPathOverrides": {
-      "webpack://*": "${webRoot}/*"
-    },
-    "timeout": 60000
-  }]
+  "configurations": [
+    {
+      "name": "Chrome Debug Config",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost",
+      "webRoot": "${workspaceRoot}",
+      "sourceMapPathOverrides": {
+        "webpack://*": "${webRoot}/*"
+      },
+      "timeout": 60000
+    }
+  ]
 }
