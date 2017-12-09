@@ -10,8 +10,6 @@
     "test": "cross-env jest --config jest.json --env=jsdom --coverage",
     "lint": "tslint ./src/{ui,admin}/**/*.{ts,tsx} ./test/**/*.{ts,tsx}",
     "tslint:fix": "yarn tslint --fix",
-    "prettier:base": "prettier --single-quote --trailing-comma es5 --no-semi --write",
-    "prettify": "npm run prettier:base \"{src,test}/**/*.{ts,tsx,js}\"",
     "codecov": "codecov"
   },
   "dependencies": {
@@ -30,7 +28,6 @@
     "node-sass": "^4.7.2",
     "nodemon": "^1.12.5",
     "parallel-webpack": "^2.2.0",
-    "prettier": "^1.9.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
@@ -39,7 +36,6 @@
     "ts-jest": "^21.2.3",
     "ts-node": "^3.3.0",
     "tslint": "^5.8.0",
-    "tslint-config-prettier": "^1.6.0",
     "typescript": "^2.6.2",
     "webpack": "^3.10.0",
     "webpack-dev-middleware": "^1.12.2",
