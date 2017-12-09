@@ -6,7 +6,4 @@ if (!process.env.TEST_ENV) {
   require('../../styles/hellstorm.scss')
 }
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root'),
-)
+ReactDOM.render(<App />, document.getElementById('root'))

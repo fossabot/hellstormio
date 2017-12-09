@@ -2,8 +2,6 @@ import * as React from 'react'
 
 export class App extends React.Component {
   public render() {
-    return (
-      <div>AdminPanel</div>
-    )
+    return <div>AdminPanel</div>
   }
 }

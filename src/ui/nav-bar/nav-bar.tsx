@@ -6,30 +6,34 @@ export class NavBar extends React.Component {
   public render() {
     return (
       <Router>
-        <div id='navbar' className='topnav'>
-          <NavLink className='left' to='/'>Home</NavLink>
-          <NavLink className='left' to='/ about'>About</NavLink>
-          <NavLink className='left' to='/topics'>Topics</NavLink>
+        <div id="navbar" className="topnav">
+          <NavLink className="left" to="/">
+            Home
+          </NavLink>
+          <NavLink className="left" to="/ about">
+            About
+          </NavLink>
+          <NavLink className="left" to="/topics">
+            Topics
+          </NavLink>
 
-          <div className='sign'>
-            <NavLink className='right' to='/login'>Login</NavLink>
-            <NavLink className='right' to='register'>Register</NavLink>
+          <div className="sign">
+            <NavLink className="right" to="/login">
+              Login
+            </NavLink>
+            <NavLink className="right" to="register">
+              Register
+            </NavLink>
           </div>
-          <input type='text' placeholder='Search…' />
+          <input type="text" placeholder="Search…" />
         </div>
       </Router>
     )
   }
 
   public renderRouters = () => {
-    return (
-      <Route path='/login' component={this.topicsComponent} />
-    )
+    return <Route path="/login" component={this.topicsComponent} />
   }
 
-  public topicsComponent = () => (
-    <div>
-      Topics
-    </div>
-  )
+  public topicsComponent = () => <div>Topics</div>
 }

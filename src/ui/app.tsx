@@ -6,7 +6,7 @@ import { Join } from './registration'
 export class App extends React.Component {
   public render() {
     return (
-      <div id='root'>
+      <div id="root">
         <NavBar />
         <Join />
         <Footer />
