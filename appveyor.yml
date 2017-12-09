@@ -4,7 +4,7 @@ platform:
   - x64
 
 environment:
-  nodejs_version: "8.9.0"
+  nodejs_version: "8.9.3"
 
 cache:
   - node_modules
@@ -30,3 +30,4 @@ build_script:
 test_script:
   - node --version
   - yarn test
+  - yarn codecov
